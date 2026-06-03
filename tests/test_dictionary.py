@@ -24,9 +24,7 @@ REQUIRED_COLUMNS = [
     "record_type",
     "is_notifiable_disease",
     "parent_disease_id",
-    "official_name_zh",
-    "report_name_zh",
-    "raw_match_name_zh",
+    "cisdcp_disease_name",
     "transmission_type",
     "is_current",
     "effective_start_date",
@@ -155,26 +153,49 @@ class DictionaryValidationTest(unittest.TestCase):
         weekly_rows = read_csv(WEEKLY_FIXTURE)
         current_rows = read_csv(CURRENT_CSV)
         migrated_pairs = {
-            (row["raw_match_name_zh"], row["report_name_zh"]) for row in current_rows
+            (row["cisdcp_disease_name"], row["disease_name_zh"]) for row in current_rows
         }
 
         self.assertEqual(len(weekly_rows), 83)
         for row in weekly_rows:
-            self.assertIn((row["疾病病种"], row["diseases"]), migrated_pairs)
+            self.assertIn(row["疾病病种"], {item[0] for item in migrated_pairs})
 
-    def test_legacy_short_names_map_to_official_names(self):
+    def test_cisdcp_names_are_unique_and_use_full_width_parentheses(self):
         rows = read_csv(CURRENT_CSV)
-        by_raw = {row["raw_match_name_zh"]: row for row in rows}
+        cisdcp_names = [row["cisdcp_disease_name"] for row in rows]
+        self.assertEqual(len(cisdcp_names), len(set(cisdcp_names)))
+
+        for row in rows:
+            for field in ["disease_name_zh", "cisdcp_disease_name"]:
+                self.assertNotIn("(", row[field])
+                self.assertNotIn(")", row[field])
+
+    def test_report_names_follow_current_display_policy(self):
+        rows = read_csv(CURRENT_CSV)
+        by_cisdcp = {row["cisdcp_disease_name"]: row for row in rows}
 
         expected = {
-            "痢疾": ("细菌性和阿米巴性痢疾", "痢疾"),
-            "斑疹伤寒": ("流行性和地方性斑疹伤寒", "斑疹伤寒"),
-            "其他感染性腹泻病": ("感染性腹泻病", "其他感染性腹泻病"),
+            "痢疾": "痢疾",
+            "斑疹伤寒": "流行性和地方性斑疹伤寒",
+            "其他感染性腹泻病": "其他感染性腹泻病",
         }
-        for raw_name, (official_name, report_name) in expected.items():
-            self.assertEqual(by_raw[raw_name]["official_name_zh"], official_name)
-            self.assertEqual(by_raw[raw_name]["report_name_zh"], report_name)
-            self.assertEqual(by_raw[raw_name]["record_type"], "notifiable_disease")
+        for cisdcp_name, disease_name in expected.items():
+            self.assertEqual(by_cisdcp[cisdcp_name]["disease_name_zh"], disease_name)
+            self.assertEqual(by_cisdcp[cisdcp_name]["record_type"], "notifiable_disease")
+
+    def test_syphilis_subtype_names_use_chinese_ordinals(self):
+        rows = read_csv(CURRENT_CSV)
+        syphilis_subtypes = [
+            row["disease_name_zh"]
+            for row in rows
+            if row["parent_disease_id"] == "NID-B-024"
+        ]
+        self.assertIn("一期梅毒", syphilis_subtypes)
+        self.assertIn("二期梅毒", syphilis_subtypes)
+        self.assertIn("三期梅毒", syphilis_subtypes)
+        self.assertNotIn("Ⅰ期梅毒", syphilis_subtypes)
+        self.assertNotIn("Ⅱ期梅毒", syphilis_subtypes)
+        self.assertNotIn("III期梅毒", syphilis_subtypes)
 
     def test_python_reader_smoke_test(self):
         spec = importlib.util.spec_from_file_location("nids_dictionary", PY_HELPER)

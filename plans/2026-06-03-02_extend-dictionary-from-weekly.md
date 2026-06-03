@@ -7,7 +7,10 @@
 ## 实施口径
 
 - 保留 42 个法定病种的既有 `disease_id`。
-- 新增 `record_type`、`is_notifiable_disease`、`parent_disease_id`、`official_name_zh`、`report_name_zh`、`raw_match_name_zh` 和 `transmission_type`。
+- 新增 `record_type`、`is_notifiable_disease`、`parent_disease_id`、`cisdcp_disease_name` 和 `transmission_type`。
+- `disease_name_zh` 表示对外报告使用的正式中文名称。
+- `cisdcp_disease_name` 精确对应 CISDCP 疫情分析报表中的 `疾病病种` 列。
+- 字段迁移：`official_name_zh` 和 `report_name_zh` 已合并为 `disease_name_zh`；`raw_match_name_zh` 已更名为 `cisdcp_disease_name`。
 - 旧周报 `tier=N` 记录进入主表，标记为 `subtype`、`alias` 或 `aggregate`。
 - 法定病种名称、分类和管理方式仍以法律公告来源为准；旧周报字典仅作为业务映射来源。
 - 本轮不改 `Infection_Weekly`，不生成 GBK 兼容导出文件。

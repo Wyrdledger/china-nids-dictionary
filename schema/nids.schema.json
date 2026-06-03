@@ -12,9 +12,7 @@
     "record_type",
     "is_notifiable_disease",
     "parent_disease_id",
-    "official_name_zh",
-    "report_name_zh",
-    "raw_match_name_zh",
+    "cisdcp_disease_name",
     "transmission_type",
     "is_current",
     "effective_start_date",
@@ -30,7 +28,8 @@
     },
     "disease_name_zh": {
       "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "pattern": "^[^()]+$"
     },
     "disease_name_en": {
       "type": ["string", "null"]
@@ -65,17 +64,10 @@
       "type": ["string", "null"],
       "pattern": "^NID-[ABC]-[0-9]{3}$"
     },
-    "official_name_zh": {
+    "cisdcp_disease_name": {
       "type": "string",
-      "minLength": 1
-    },
-    "report_name_zh": {
-      "type": "string",
-      "minLength": 1
-    },
-    "raw_match_name_zh": {
-      "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "pattern": "^[^()]+$"
     },
     "transmission_type": {
       "type": ["string", "null"],

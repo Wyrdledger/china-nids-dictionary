@@ -1,6 +1,10 @@
 source("R/read_nids_dictionary.R", encoding = "UTF-8")
 
 df <- read_nids_dictionary("data/nids_current.csv")
+stopifnot("cisdcp_disease_name" %in% colnames(df))
+stopifnot(!"raw_match_name_zh" %in% colnames(df))
+stopifnot(!"official_name_zh" %in% colnames(df))
+stopifnot(!"report_name_zh" %in% colnames(df))
 stopifnot(nrow(df) == 83)
 notifiable <- df[df$is_notifiable_disease, ]
 stopifnot(nrow(notifiable) == 42)

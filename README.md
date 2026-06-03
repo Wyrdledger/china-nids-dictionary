@@ -12,7 +12,7 @@
 
 其余记录为旧周报字典迁移而来的子项、分型、别名和汇总项。统计法定病种数量时，应筛选 `is_notifiable_disease == true`。
 
-本仓库从 2025 年新版《中华人民共和国传染病防治法》和 2026 年第 3 号国家卫生健康委公告建立当前目录基线，并参考 `Infection_Weekly` 旧周报字典补充报告展示名、原始数据匹配名和传播类型。`data/nids_history.csv` 不是完整历史回溯表；它是从首版开始用于持续维护历史口径的主表。
+本仓库从 2025 年新版《中华人民共和国传染病防治法》和 2026 年第 3 号国家卫生健康委公告建立当前目录基线，并参考 `Infection_Weekly` 旧周报字典补充 CISDCP 原始报表匹配名和传播类型。`data/nids_history.csv` 不是完整历史回溯表；它是从首版开始用于持续维护历史口径的主表。
 
 ## 文件结构
 
@@ -92,7 +92,10 @@ nids <- read_nids_dictionary(url)
 - 目录调整时，先更新 `data/nids_history.csv`，再同步 `nids_current.csv` 和 `nids_current.json`。
 - 只有 `record_type == "notifiable_disease"` 且 `is_notifiable_disease == true` 的记录计入法定传染病目录。
 - 子项、分型和别名必须维护 `parent_disease_id`。
-- `official_name_zh` 使用权威名称，`report_name_zh` 和 `raw_match_name_zh` 服务报告展示与原始数据匹配。
+- `disease_name_zh` 是对外报告使用的正式中文名称。
+- `cisdcp_disease_name` 必须能精确匹配 CISDCP 导出的疫情分析报表 `疾病病种` 列。
+- 中文疾病名称字段统一使用中文全角括号 `（`、`）`，不得使用英文半角括号 `(`、`)`。
+- 字段迁移：`official_name_zh` 和 `report_name_zh` 已合并为 `disease_name_zh`；`raw_match_name_zh` 已更名为 `cisdcp_disease_name`。
 - 每条记录必须保留来源字段和生效日期。
 - 中文文件统一使用 UTF-8。
 
