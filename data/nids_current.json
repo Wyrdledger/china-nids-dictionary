@@ -10,7 +10,7 @@
     "legal_class": "甲类",
     "management_class": "甲类管理",
     "report_time_limit_hours": 2,
-    "transmission_type": null
+    "transmission_type": "动物源性及虫媒传染病"
   },
   {
     "disease_id": "NID-A-002",
@@ -62,7 +62,7 @@
     "legal_class": "乙类",
     "management_class": "乙类管理",
     "report_time_limit_hours": 24,
-    "transmission_type": null
+    "transmission_type": "经血与性传播传染病"
   },
   {
     "disease_id": "NID-B-004",
@@ -127,7 +127,7 @@
     "legal_class": "乙类",
     "management_class": "乙类管理",
     "report_time_limit_hours": 24,
-    "transmission_type": null
+    "transmission_type": "动物源性及虫媒传染病"
   },
   {
     "disease_id": "NID-B-009",
@@ -140,7 +140,7 @@
     "legal_class": "乙类",
     "management_class": "乙类管理",
     "report_time_limit_hours": 24,
-    "transmission_type": null
+    "transmission_type": "动物源性及虫媒传染病"
   },
   {
     "disease_id": "NID-B-010",
@@ -153,7 +153,7 @@
     "legal_class": "乙类",
     "management_class": "乙类管理",
     "report_time_limit_hours": 24,
-    "transmission_type": null
+    "transmission_type": "动物源性及虫媒传染病"
   },
   {
     "disease_id": "NID-B-011",
@@ -166,7 +166,7 @@
     "legal_class": "乙类",
     "management_class": "乙类管理",
     "report_time_limit_hours": 24,
-    "transmission_type": null
+    "transmission_type": "动物源性及虫媒传染病"
   },
   {
     "disease_id": "NID-B-012",
@@ -192,7 +192,7 @@
     "legal_class": "乙类",
     "management_class": "乙类管理",
     "report_time_limit_hours": 24,
-    "transmission_type": "肠道传染病"
+    "transmission_type": "动物源性及虫媒传染病"
   },
   {
     "disease_id": "NID-B-014",
@@ -283,7 +283,7 @@
     "legal_class": "乙类",
     "management_class": "乙类管理",
     "report_time_limit_hours": 24,
-    "transmission_type": null
+    "transmission_type": "其他"
   },
   {
     "disease_id": "NID-B-021",
@@ -309,7 +309,7 @@
     "legal_class": "乙类",
     "management_class": "乙类管理",
     "report_time_limit_hours": 24,
-    "transmission_type": null
+    "transmission_type": "动物源性及虫媒传染病"
   },
   {
     "disease_id": "NID-B-023",
@@ -322,7 +322,7 @@
     "legal_class": "乙类",
     "management_class": "乙类管理",
     "report_time_limit_hours": 24,
-    "transmission_type": null
+    "transmission_type": "经血与性传播传染病"
   },
   {
     "disease_id": "NID-B-024",
@@ -335,7 +335,7 @@
     "legal_class": "乙类",
     "management_class": "乙类管理",
     "report_time_limit_hours": 24,
-    "transmission_type": null
+    "transmission_type": "经血与性传播传染病"
   },
   {
     "disease_id": "NID-B-025",
@@ -348,7 +348,7 @@
     "legal_class": "乙类",
     "management_class": "乙类管理",
     "report_time_limit_hours": 24,
-    "transmission_type": null
+    "transmission_type": "动物源性及虫媒传染病"
   },
   {
     "disease_id": "NID-B-026",
@@ -361,7 +361,7 @@
     "legal_class": "乙类",
     "management_class": "乙类管理",
     "report_time_limit_hours": 24,
-    "transmission_type": null
+    "transmission_type": "动物源性及虫媒传染病"
   },
   {
     "disease_id": "NID-B-027",
@@ -374,7 +374,7 @@
     "legal_class": "乙类",
     "management_class": "乙类管理",
     "report_time_limit_hours": 24,
-    "transmission_type": null
+    "transmission_type": "动物源性及虫媒传染病"
   },
   {
     "disease_id": "NID-B-028",
@@ -478,7 +478,7 @@
     "legal_class": "丙类",
     "management_class": "丙类管理",
     "report_time_limit_hours": 24,
-    "transmission_type": null
+    "transmission_type": "动物源性及虫媒传染病"
   },
   {
     "disease_id": "NID-C-007",
@@ -491,7 +491,7 @@
     "legal_class": "丙类",
     "management_class": "丙类管理",
     "report_time_limit_hours": 24,
-    "transmission_type": null
+    "transmission_type": "动物源性及虫媒传染病"
   },
   {
     "disease_id": "NID-C-008",
@@ -504,7 +504,7 @@
     "legal_class": "丙类",
     "management_class": "丙类管理",
     "report_time_limit_hours": 24,
-    "transmission_type": null
+    "transmission_type": "动物源性及虫媒传染病"
   },
   {
     "disease_id": "NID-C-009",
@@ -517,7 +517,7 @@
     "legal_class": "丙类",
     "management_class": "丙类管理",
     "report_time_limit_hours": 24,
-    "transmission_type": null
+    "transmission_type": "动物源性及虫媒传染病"
   },
   {
     "disease_id": "NID-C-010",
@@ -582,7 +582,7 @@
     "legal_class": "乙类",
     "management_class": "乙类管理",
     "report_time_limit_hours": 24,
-    "transmission_type": null
+    "transmission_type": "经血与性传播传染病"
   },
   {
     "disease_id": "NID-B-004-S003",
@@ -595,7 +595,7 @@
     "legal_class": "乙类",
     "management_class": "乙类管理",
     "report_time_limit_hours": 24,
-    "transmission_type": null
+    "transmission_type": "经血与性传播传染病"
   },
   {
     "disease_id": "NID-B-004-S004",
@@ -660,7 +660,7 @@
     "legal_class": "乙类",
     "management_class": "乙类管理",
     "report_time_limit_hours": 24,
-    "transmission_type": null
+    "transmission_type": "动物源性及虫媒传染病"
   },
   {
     "disease_id": "NID-B-006-S003",
@@ -699,7 +699,7 @@
     "legal_class": "乙类",
     "management_class": "乙类管理",
     "report_time_limit_hours": 24,
-    "transmission_type": null
+    "transmission_type": "动物源性及虫媒传染病"
   },
   {
     "disease_id": "NID-B-006-S006",

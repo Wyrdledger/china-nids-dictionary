@@ -42,3 +42,15 @@ stopifnot(df$disease_name_zh[df$cisdcp_disease_name == "痢疾"] == "细菌性�
 class_a_managed <- df[df$legal_class == "乙类" & df$management_class == "甲类管理", ]
 stopifnot(setequal(class_a_managed$disease_id, c("NID-B-002", "NID-B-013-S001")))
 stopifnot(all(class_a_managed$report_time_limit_hours == 2))
+expected_transmission_types <- c(
+  "呼吸道传染病",
+  "肠道传染病",
+  "动物源性及虫媒传染病",
+  "经血与性传播传染病",
+  "其他"
+)
+stopifnot(all(expected_transmission_types %in% df$transmission_type))
+stopifnot(df$transmission_type[df$disease_name_zh == "H5N1"] == "动物源性及虫媒传染病")
+stopifnot(df$transmission_type[df$disease_name_zh == "H7N9"] == "动物源性及虫媒传染病")
+stopifnot(df$transmission_type[df$disease_name_zh == "乙肝"] == "经血与性传播传染病")
+stopifnot(df$transmission_type[df$disease_name_zh == "新生儿破伤风"] == "其他")

@@ -76,7 +76,14 @@ class DictionaryValidationTest(unittest.TestCase):
             "丙类管理",
         }
         valid_record_types = {"notifiable_disease", "subtype", "alias", "aggregate"}
-        valid_transmission = {"", "呼吸道传染病", "肠道传染病"}
+        valid_transmission = {
+            "",
+            "呼吸道传染病",
+            "肠道传染病",
+            "动物源性及虫媒传染病",
+            "经血与性传播传染病",
+            "其他",
+        }
 
         for row in rows:
             self.assertRegex(
@@ -203,6 +210,65 @@ class DictionaryValidationTest(unittest.TestCase):
         anthrax_parent = next(row for row in rows if row["disease_id"] == "NID-B-013")
         self.assertEqual(anthrax_parent["management_class"], "乙类管理")
         self.assertEqual(anthrax_parent["report_time_limit_hours"], "24")
+
+    def test_transmission_type_policy(self):
+        rows = read_csv(CURRENT_CSV)
+        by_name = {row["disease_name_zh"]: row for row in rows}
+
+        expected = {
+            "传染性非典型肺炎": "呼吸道传染病",
+            "麻疹": "呼吸道传染病",
+            "肺结核": "呼吸道传染病",
+            "流行性脑脊髓膜炎": "呼吸道传染病",
+            "百日咳": "呼吸道传染病",
+            "白喉": "呼吸道传染病",
+            "猩红热": "呼吸道传染病",
+            "流行性感冒": "呼吸道传染病",
+            "流行性腮腺炎": "呼吸道传染病",
+            "风疹": "呼吸道传染病",
+            "麻风病": "呼吸道传染病",
+            "霍乱": "肠道传染病",
+            "甲肝": "肠道传染病",
+            "戊肝": "肠道传染病",
+            "肝炎（未分型）": "肠道传染病",
+            "脊髓灰质炎": "肠道传染病",
+            "细菌性和阿米巴痢疾": "肠道传染病",
+            "伤寒和副伤寒": "肠道传染病",
+            "急性出血性结膜炎": "肠道传染病",
+            "其他感染性腹泻病": "肠道传染病",
+            "手足口病": "肠道传染病",
+            "鼠疫": "动物源性及虫媒传染病",
+            "H5N1": "动物源性及虫媒传染病",
+            "流行性出血热": "动物源性及虫媒传染病",
+            "狂犬病": "动物源性及虫媒传染病",
+            "流行性乙型脑炎": "动物源性及虫媒传染病",
+            "登革热": "动物源性及虫媒传染病",
+            "炭疽": "动物源性及虫媒传染病",
+            "布鲁氏菌病": "动物源性及虫媒传染病",
+            "钩端螺旋体病": "动物源性及虫媒传染病",
+            "血吸虫病": "动物源性及虫媒传染病",
+            "疟疾": "动物源性及虫媒传染病",
+            "H7N9": "动物源性及虫媒传染病",
+            "流行性和地方性斑疹伤寒": "动物源性及虫媒传染病",
+            "黑热病": "动物源性及虫媒传染病",
+            "包虫病": "动物源性及虫媒传染病",
+            "丝虫病": "动物源性及虫媒传染病",
+            "艾滋病": "经血与性传播传染病",
+            "乙肝": "经血与性传播传染病",
+            "丙肝": "经血与性传播传染病",
+            "淋病": "经血与性传播传染病",
+            "梅毒": "经血与性传播传染病",
+            "新生儿破伤风": "其他",
+        }
+        for disease_name, transmission_type in expected.items():
+            self.assertEqual(by_name[disease_name]["transmission_type"], transmission_type)
+
+        observed_types = {row["transmission_type"] for row in rows if row["transmission_type"]}
+        self.assertIn("呼吸道传染病", observed_types)
+        self.assertIn("肠道传染病", observed_types)
+        self.assertIn("动物源性及虫媒传染病", observed_types)
+        self.assertIn("经血与性传播传染病", observed_types)
+        self.assertIn("其他", observed_types)
 
     def test_hiv_is_subtype_and_aggregate_is_last_alignment_row(self):
         rows = read_csv(CURRENT_CSV)
