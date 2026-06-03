@@ -65,3 +65,9 @@ stopifnot(df$pathogen_type[df$disease_name_zh == "发热伴血小板减少综合
 stopifnot(df$pathogen_type[df$disease_name_zh == "病毒性肝炎"] == "病毒性疾病")
 stopifnot(df$pathogen_type[df$disease_name_zh == "阿米巴性痢疾"] == "寄生虫病性疾病")
 stopifnot(df$pathogen_type[df$disease_name_zh == "H5N1"] == "")
+
+stopifnot(all(!is.na(df$disease_name_en) & nzchar(df$disease_name_en)))
+stopifnot(df$disease_name_en[df$disease_name_zh == "流行性出血热"] == "Hemorrhagic fever with renal syndrome")
+stopifnot(df$disease_name_en[df$disease_name_zh == "猴痘"] == "Mpox")
+stopifnot(df$disease_name_en[df$disease_name_zh == "手足口病"] == "Hand, foot and mouth disease")
+stopifnot(df$disease_name_en[df$disease_name_zh == "H7N9"] == "Human infection with avian influenza A(H7N9) virus")

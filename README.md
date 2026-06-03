@@ -96,6 +96,7 @@ nids <- read_nids_dictionary(url)
 - `record_type == "aggregate"` 的 `合计` 不是病种，只为与 CISDCP 疫情分析报表结构对应，固定放在最后一行。
 - `disease_name_zh` 是对外报告使用的正式中文名称。
 - `cisdcp_disease_name` 必须能精确匹配 CISDCP 导出的疫情分析报表 `疾病病种` 列。
+- `disease_name_en` 以 `disease_name_zh` 为基准维护专业英文名，优先参考医学/流行病学文献和权威英文口径，不做简单直译。
 - `transmission_type` 当前包含 `呼吸道传染病`、`肠道传染病`、`动物源性及虫媒传染病`、`经血与性传播传染病`、`其他` 和空值。
 - `pathogen_type` 当前包含 `细菌性疾病`、`病毒性疾病`、`寄生虫病性疾病` 和空值；未明确列入病原学清单的记录保持空值。
 - 当前 `传染性非典型肺炎` 和 `肺炭疽` 的 `management_class` 记为 `甲类管理`，网络直报时限均为 2 小时。

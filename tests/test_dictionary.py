@@ -182,6 +182,39 @@ class DictionaryValidationTest(unittest.TestCase):
             self.assertEqual(by_cisdcp[cisdcp_name]["disease_name_zh"], disease_name)
             self.assertEqual(by_cisdcp[cisdcp_name]["record_type"], "notifiable_disease")
 
+    def test_english_names_follow_professional_usage(self):
+        rows = read_csv(CURRENT_CSV)
+        by_name = {row["disease_name_zh"]: row for row in rows}
+
+        self.assertTrue(all(row["disease_name_en"] for row in rows))
+
+        expected = {
+            "新型冠状病毒感染": "COVID-19",
+            "人感染新亚型流感": "Human infection with novel influenza virus",
+            "流行性出血热": "Hemorrhagic fever with renal syndrome",
+            "登革热": "Dengue",
+            "猴痘": "Mpox",
+            "细菌性和阿米巴痢疾": "Bacillary and amoebic dysentery",
+            "黑热病": "Visceral leishmaniasis (kala-azar)",
+            "手足口病": "Hand, foot and mouth disease",
+            "其他感染性腹泻病": "Other infectious diarrhea",
+            "HIV": "HIV infection",
+            "H5N1": "Human infection with avian influenza A(H5N1) virus",
+            "H7N9": "Human infection with avian influenza A(H7N9) virus",
+            "欧亚类禽H1N1": (
+                "Human infection with Eurasian avian-like influenza A(H1N1) virus"
+            ),
+            "阿米巴性痢疾": "Amoebic dysentery",
+            "利福平耐药": "Rifampicin-resistant pulmonary tuberculosis",
+            "一期梅毒": "Primary syphilis",
+            "间日疟": "Plasmodium vivax malaria",
+            "恶性疟": "Plasmodium falciparum malaria",
+            "疟疾（未分型）": "Untyped malaria",
+            "合计": "Total",
+        }
+        for disease_name, disease_name_en in expected.items():
+            self.assertEqual(by_name[disease_name]["disease_name_en"], disease_name_en)
+
     def test_syphilis_subtype_names_use_chinese_ordinals(self):
         rows = read_csv(CURRENT_CSV)
         syphilis_subtypes = [
