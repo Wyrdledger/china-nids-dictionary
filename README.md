@@ -32,52 +32,117 @@
 
 ## 快速使用
 
-主要数据文件：
+最常用的是 `nids_current.csv`：
 
 ```text
-data/nids_current.csv      当前有效统一字典
-data/nids_current.json     当前有效字典 JSON 镜像
-schema/nids.schema.json    单行字典记录 schema
-docs/field_dictionary.md   字段说明
-docs/sources.md            来源与更新依据
+https://raw.githubusercontent.com/Wyrdledger/china-nids-dictionary/main/data/nids_current.csv
 ```
 
-Python：
+也可以使用 JSON：
+
+```text
+https://raw.githubusercontent.com/Wyrdledger/china-nids-dictionary/main/data/nids_current.json
+```
+
+### 在线读取
+
+Python/pandas：
 
 ```python
-from python.nids_dictionary import read_nids_csv
+import pandas as pd
 
-rows = read_nids_csv("data/nids_current.csv")
-notifiable_rows = [
-    row for row in rows
-    if row["record_type"] == "notifiable_disease" and row["is_notifiable_disease"]
-]
+url = "https://raw.githubusercontent.com/Wyrdledger/china-nids-dictionary/main/data/nids_current.csv"
+dictionary = pd.read_csv(url)
 ```
 
-R：
+R/readr：
 
 ```r
-source("R/read_nids_dictionary.R", encoding = "UTF-8")
+library(readr)
 
-nids <- read_nids_dictionary("data/nids_current.csv")
-notifiable_nids <- nids[
-  nids$record_type == "notifiable_disease" & nids$is_notifiable_disease,
-]
+url <- "https://raw.githubusercontent.com/Wyrdledger/china-nids-dictionary/main/data/nids_current.csv"
+dictionary <- read_csv(url, show_col_types = FALSE)
 ```
 
-在线读取最新版：
+JSON 在线读取：
 
 ```python
-from python.nids_dictionary import read_nids_csv
+import pandas as pd
 
-rows = read_nids_csv()
+url = "https://raw.githubusercontent.com/Wyrdledger/china-nids-dictionary/main/data/nids_current.json"
+dictionary = pd.read_json(url)
+```
+
+```r
+library(jsonlite)
+
+url <- "https://raw.githubusercontent.com/Wyrdledger/china-nids-dictionary/main/data/nids_current.json"
+dictionary <- fromJSON(url)
+```
+
+### 下载后读取
+
+Windows PowerShell：
+
+```powershell
+Invoke-WebRequest `
+  -Uri "https://raw.githubusercontent.com/Wyrdledger/china-nids-dictionary/main/data/nids_current.csv" `
+  -OutFile "nids_current.csv"
+```
+
+下载 JSON：
+
+```powershell
+Invoke-WebRequest `
+  -Uri "https://raw.githubusercontent.com/Wyrdledger/china-nids-dictionary/main/data/nids_current.json" `
+  -OutFile "nids_current.json"
+```
+
+Python/pandas：
+
+```python
+import pandas as pd
+
+dictionary = pd.read_csv("nids_current.csv")
+```
+
+Python 读取 JSON：
+
+```python
+import pandas as pd
+
+dictionary = pd.read_json("nids_current.json")
+```
+
+R/readr：
+
+```r
+library(readr)
+
+dictionary <- read_csv("nids_current.csv", show_col_types = FALSE)
+```
+
+R 读取 JSON：
+
+```r
+library(jsonlite)
+
+dictionary <- fromJSON("nids_current.json")
+```
+
+如果需要 README、schema、字段说明和测试，可以下载整个仓库：
+
+```powershell
+git clone https://github.com/Wyrdledger/china-nids-dictionary.git
 ```
 
 正式分析建议固定到 Git tag URL，避免 `main` 后续维护更新影响复现：
 
 ```python
+import pandas as pd
+
 url = "https://raw.githubusercontent.com/Wyrdledger/china-nids-dictionary/v2026.04.01/data/nids_current.csv"
-rows = read_nids_csv(url)
+dictionary = pd.read_csv(url)
 ```
 
 ## 字段口径
