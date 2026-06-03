@@ -22,6 +22,16 @@
 
 本来源用于记录基孔肯雅热和发热伴血小板减少综合征自 2026-04-01 起纳入乙类传染病管理。
 
+## weekly-dictionary-2026-06-01
+
+- 标题：Infection_Weekly 周报项目疾病字典
+- 文件：`E:\Projects\Infection_Weekly\config\dictionary.csv`
+- 文件时间：2026-06-01
+- 编码：GBK/ANSI
+- 迁移快照：`tests/fixtures/weekly_dictionary_2026-06-01.csv`
+
+本来源是历史人工整理的周报业务映射表，用于补充报告展示名、原始数据匹配名、子项/分型/别名、汇总项和传播类型。它不是法定目录依据；法定病种名称、分类和管理口径仍以法律公告来源为准。
+
 ## 后续维护
 
 新增、删除、调整病种时，应在本文件新增来源条目，并在 `data/nids_history.csv` 中记录 `source_id` 和生效日期。正式版本更新后打 Git tag，例如 `v2026.04.01`。

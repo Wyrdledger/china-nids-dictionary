@@ -14,8 +14,11 @@ read_nids_dictionary <- function(path_or_url = default_nids_current_csv) {
     check.names = FALSE
   )
 
+  df$report_time_limit_hours[df$report_time_limit_hours == ""] <- NA_character_
   df$report_time_limit_hours <- as.integer(df$report_time_limit_hours)
+  df$is_notifiable_disease <- tolower(df$is_notifiable_disease) == "true"
   df$is_current <- tolower(df$is_current) == "true"
+  df$parent_disease_id[df$parent_disease_id == ""] <- NA_character_
   df$effective_end_date[df$effective_end_date == ""] <- NA_character_
   df
 }

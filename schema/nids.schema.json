@@ -9,6 +9,13 @@
     "legal_class",
     "management_class",
     "report_time_limit_hours",
+    "record_type",
+    "is_notifiable_disease",
+    "parent_disease_id",
+    "official_name_zh",
+    "report_name_zh",
+    "raw_match_name_zh",
+    "transmission_type",
     "is_current",
     "effective_start_date",
     "effective_end_date",
@@ -19,33 +26,60 @@
   "properties": {
     "disease_id": {
       "type": "string",
-      "pattern": "^NID-[ABC]-[0-9]{3}$"
+      "pattern": "^NID-(?:[ABC]-[0-9]{3}(?:-S[0-9]{3})?|AGG-[0-9]{3})$"
     },
     "disease_name_zh": {
       "type": "string",
       "minLength": 1
     },
     "disease_name_en": {
-      "type": "string",
-      "minLength": 1
+      "type": ["string", "null"]
     },
     "legal_class": {
-      "type": "string",
-      "enum": ["甲类", "乙类", "丙类"]
+      "type": ["string", "null"],
+      "enum": ["甲类", "乙类", "丙类", null]
     },
     "management_class": {
-      "type": "string",
+      "type": ["string", "null"],
       "enum": [
         "甲类管理",
         "乙类管理",
         "乙类按甲类措施管理",
         "乙类部分按甲类措施管理",
-        "丙类管理"
+        "丙类管理",
+        null
       ]
     },
     "report_time_limit_hours": {
-      "type": "integer",
-      "enum": [2, 24]
+      "type": ["integer", "null"],
+      "enum": [2, 24, null]
+    },
+    "record_type": {
+      "type": "string",
+      "enum": ["notifiable_disease", "subtype", "alias", "aggregate"]
+    },
+    "is_notifiable_disease": {
+      "type": "boolean"
+    },
+    "parent_disease_id": {
+      "type": ["string", "null"],
+      "pattern": "^NID-[ABC]-[0-9]{3}$"
+    },
+    "official_name_zh": {
+      "type": "string",
+      "minLength": 1
+    },
+    "report_name_zh": {
+      "type": "string",
+      "minLength": 1
+    },
+    "raw_match_name_zh": {
+      "type": "string",
+      "minLength": 1
+    },
+    "transmission_type": {
+      "type": ["string", "null"],
+      "enum": ["呼吸道传染病", "肠道传染病", null]
     },
     "is_current": {
       "type": "boolean"

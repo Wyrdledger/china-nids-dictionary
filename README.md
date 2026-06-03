@@ -1,22 +1,24 @@
 # China NIDs Dictionary
 
-中国法定传染病 NIDs 字典，面向后续传染病统计、数据质控和分析项目维护。项目只保存公开规则字典，不保存个案数据、患者信息或任何敏感数据。
+中国法定传染病 NIDs 字典，面向后续传染病统计、数据质控和分析项目维护。项目只保存公开规则字典和业务映射口径，不保存个案数据、患者信息或任何敏感数据。
 
 ## 当前基线
 
-首版当前字典包含 42 种法定传染病：
+当前字典包含 83 条当前有效记录，其中 42 条为独立法定传染病：
 
 - 甲类：2 种
 - 乙类：29 种
 - 丙类：11 种
 
-本仓库从 2025 年新版《中华人民共和国传染病防治法》和 2026 年第 3 号国家卫生健康委公告建立当前目录基线。`data/nids_history.csv` 不是完整历史回溯表；它是从首版开始用于持续维护历史口径的主表。
+其余记录为旧周报字典迁移而来的子项、分型、别名和汇总项。统计法定病种数量时，应筛选 `is_notifiable_disease == true`。
+
+本仓库从 2025 年新版《中华人民共和国传染病防治法》和 2026 年第 3 号国家卫生健康委公告建立当前目录基线，并参考 `Infection_Weekly` 旧周报字典补充报告展示名、原始数据匹配名和传播类型。`data/nids_history.csv` 不是完整历史回溯表；它是从首版开始用于持续维护历史口径的主表。
 
 ## 文件结构
 
 ```text
 data/
-  nids_current.csv      当前有效字典
+  nids_current.csv      当前有效统一字典
   nids_current.json     当前有效字典 JSON 镜像
   nids_history.csv      带生效/失效日期的维护主表
 schema/
@@ -39,6 +41,7 @@ tests/
 from python.nids_dictionary import read_nids_csv
 
 rows = read_nids_csv("data/nids_current.csv")
+notifiable_rows = [row for row in rows if row["is_notifiable_disease"]]
 ```
 
 在线读取最新版：
@@ -62,6 +65,7 @@ rows = read_nids_csv(url)
 source("R/read_nids_dictionary.R", encoding = "UTF-8")
 
 nids <- read_nids_dictionary("data/nids_current.csv")
+notifiable_nids <- nids[nids$is_notifiable_disease, ]
 ```
 
 在线读取最新版：
@@ -86,6 +90,9 @@ nids <- read_nids_dictionary(url)
 - `main` 表示最新维护版，适合探索和日常使用。
 - 正式分析使用 Git tag URL，例如 `v2026.04.01`。
 - 目录调整时，先更新 `data/nids_history.csv`，再同步 `nids_current.csv` 和 `nids_current.json`。
+- 只有 `record_type == "notifiable_disease"` 且 `is_notifiable_disease == true` 的记录计入法定传染病目录。
+- 子项、分型和别名必须维护 `parent_disease_id`。
+- `official_name_zh` 使用权威名称，`report_name_zh` 和 `raw_match_name_zh` 服务报告展示与原始数据匹配。
 - 每条记录必须保留来源字段和生效日期。
 - 中文文件统一使用 UTF-8。
 
