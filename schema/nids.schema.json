@@ -13,7 +13,8 @@
     "legal_class",
     "management_class",
     "report_time_limit_hours",
-    "transmission_type"
+    "transmission_type",
+    "pathogen_type"
   ],
   "additionalProperties": false,
   "properties": {
@@ -70,6 +71,15 @@
         "动物源性及虫媒传染病",
         "经血与性传播传染病",
         "其他",
+        null
+      ]
+    },
+    "pathogen_type": {
+      "type": ["string", "null"],
+      "enum": [
+        "细菌性疾病",
+        "病毒性疾病",
+        "寄生虫病性疾病",
         null
       ]
     }

@@ -12,7 +12,8 @@ expected_columns <- c(
   "legal_class",
   "management_class",
   "report_time_limit_hours",
-  "transmission_type"
+  "transmission_type",
+  "pathogen_type"
 )
 stopifnot(identical(colnames(df), expected_columns))
 stopifnot("cisdcp_disease_name" %in% colnames(df))
@@ -54,3 +55,13 @@ stopifnot(df$transmission_type[df$disease_name_zh == "H5N1"] == "动物源性及
 stopifnot(df$transmission_type[df$disease_name_zh == "H7N9"] == "动物源性及虫媒传染病")
 stopifnot(df$transmission_type[df$disease_name_zh == "乙肝"] == "经血与性传播传染病")
 stopifnot(df$transmission_type[df$disease_name_zh == "新生儿破伤风"] == "其他")
+expected_pathogen_types <- c("细菌性疾病", "病毒性疾病", "寄生虫病性疾病")
+stopifnot(all(expected_pathogen_types %in% df$pathogen_type))
+stopifnot(df$pathogen_type[df$disease_name_zh == "鼠疫"] == "细菌性疾病")
+stopifnot(df$pathogen_type[df$disease_name_zh == "新型冠状病毒感染"] == "病毒性疾病")
+stopifnot(df$pathogen_type[df$disease_name_zh == "猴痘"] == "病毒性疾病")
+stopifnot(df$pathogen_type[df$disease_name_zh == "基孔肯雅热"] == "病毒性疾病")
+stopifnot(df$pathogen_type[df$disease_name_zh == "发热伴血小板减少综合征"] == "病毒性疾病")
+stopifnot(df$pathogen_type[df$disease_name_zh == "病毒性肝炎"] == "病毒性疾病")
+stopifnot(df$pathogen_type[df$disease_name_zh == "阿米巴性痢疾"] == "寄生虫病性疾病")
+stopifnot(df$pathogen_type[df$disease_name_zh == "H5N1"] == "")

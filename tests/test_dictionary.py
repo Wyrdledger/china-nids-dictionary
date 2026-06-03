@@ -25,6 +25,7 @@ REQUIRED_COLUMNS = [
     "management_class",
     "report_time_limit_hours",
     "transmission_type",
+    "pathogen_type",
 ]
 
 
@@ -84,6 +85,7 @@ class DictionaryValidationTest(unittest.TestCase):
             "经血与性传播传染病",
             "其他",
         }
+        valid_pathogen = {"", "细菌性疾病", "病毒性疾病", "寄生虫病性疾病"}
 
         for row in rows:
             self.assertRegex(
@@ -93,6 +95,7 @@ class DictionaryValidationTest(unittest.TestCase):
             self.assertIn(row["record_type"], valid_record_types)
             self.assertIn(row["is_notifiable_disease"], {"true", "false"})
             self.assertIn(row["transmission_type"], valid_transmission)
+            self.assertIn(row["pathogen_type"], valid_pathogen)
 
             if row["record_type"] == "aggregate":
                 self.assertEqual(row["parent_disease_id"], "")
@@ -129,6 +132,7 @@ class DictionaryValidationTest(unittest.TestCase):
             "management_class",
             "parent_disease_id",
             "transmission_type",
+            "pathogen_type",
         }
         for row in csv_rows:
             item = dict(row)
@@ -259,6 +263,8 @@ class DictionaryValidationTest(unittest.TestCase):
             "淋病": "经血与性传播传染病",
             "梅毒": "经血与性传播传染病",
             "新生儿破伤风": "其他",
+            "基孔肯雅热": "动物源性及虫媒传染病",
+            "发热伴血小板减少综合征": "动物源性及虫媒传染病",
         }
         for disease_name, transmission_type in expected.items():
             self.assertEqual(by_name[disease_name]["transmission_type"], transmission_type)
@@ -269,6 +275,61 @@ class DictionaryValidationTest(unittest.TestCase):
         self.assertIn("动物源性及虫媒传染病", observed_types)
         self.assertIn("经血与性传播传染病", observed_types)
         self.assertIn("其他", observed_types)
+
+    def test_pathogen_type_policy(self):
+        rows = read_csv(CURRENT_CSV)
+        by_name = {row["disease_name_zh"]: row for row in rows}
+
+        expected = {
+            "鼠疫": "细菌性疾病",
+            "霍乱": "细菌性疾病",
+            "炭疽": "细菌性疾病",
+            "细菌性痢疾": "细菌性疾病",
+            "肺结核": "细菌性疾病",
+            "伤寒和副伤寒": "细菌性疾病",
+            "流行性脑脊髓膜炎": "细菌性疾病",
+            "百日咳": "细菌性疾病",
+            "白喉": "细菌性疾病",
+            "新生儿破伤风": "细菌性疾病",
+            "猩红热": "细菌性疾病",
+            "布鲁氏菌病": "细菌性疾病",
+            "淋病": "细菌性疾病",
+            "梅毒": "细菌性疾病",
+            "麻风病": "细菌性疾病",
+            "流行性和地方性斑疹伤寒": "细菌性疾病",
+            "钩端螺旋体病": "细菌性疾病",
+            "传染性非典型肺炎": "病毒性疾病",
+            "新型冠状病毒感染": "病毒性疾病",
+            "艾滋病": "病毒性疾病",
+            "病毒性肝炎": "病毒性疾病",
+            "脊髓灰质炎": "病毒性疾病",
+            "人感染新亚型流感": "病毒性疾病",
+            "麻疹": "病毒性疾病",
+            "流行性出血热": "病毒性疾病",
+            "狂犬病": "病毒性疾病",
+            "流行性乙型脑炎": "病毒性疾病",
+            "登革热": "病毒性疾病",
+            "H7N9": "病毒性疾病",
+            "流行性感冒": "病毒性疾病",
+            "流行性腮腺炎": "病毒性疾病",
+            "风疹": "病毒性疾病",
+            "急性出血性结膜炎": "病毒性疾病",
+            "手足口病": "病毒性疾病",
+            "猴痘": "病毒性疾病",
+            "基孔肯雅热": "病毒性疾病",
+            "发热伴血小板减少综合征": "病毒性疾病",
+            "阿米巴性痢疾": "寄生虫病性疾病",
+            "血吸虫病": "寄生虫病性疾病",
+            "疟疾": "寄生虫病性疾病",
+            "丝虫病": "寄生虫病性疾病",
+            "包虫病": "寄生虫病性疾病",
+            "黑热病": "寄生虫病性疾病",
+        }
+        for disease_name, pathogen_type in expected.items():
+            self.assertEqual(by_name[disease_name]["pathogen_type"], pathogen_type)
+
+        for disease_name in ["H5N1", "乙肝", "细菌性和阿米巴痢疾", "合计"]:
+            self.assertEqual(by_name[disease_name]["pathogen_type"], "")
 
     def test_hiv_is_subtype_and_aggregate_is_last_alignment_row(self):
         rows = read_csv(CURRENT_CSV)
