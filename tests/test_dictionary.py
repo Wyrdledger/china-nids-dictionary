@@ -3,7 +3,6 @@ import importlib.util
 import json
 import re
 import unittest
-from datetime import date
 from pathlib import Path
 
 
@@ -16,21 +15,16 @@ PY_HELPER = ROOT / "python" / "nids_dictionary.py"
 
 REQUIRED_COLUMNS = [
     "disease_id",
+    "record_type",
+    "is_notifiable_disease",
+    "parent_disease_id",
     "disease_name_zh",
+    "cisdcp_disease_name",
     "disease_name_en",
     "legal_class",
     "management_class",
     "report_time_limit_hours",
-    "record_type",
-    "is_notifiable_disease",
-    "parent_disease_id",
-    "cisdcp_disease_name",
     "transmission_type",
-    "is_current",
-    "effective_start_date",
-    "effective_end_date",
-    "source_id",
-    "source_note",
 ]
 
 
@@ -58,8 +52,14 @@ class DictionaryValidationTest(unittest.TestCase):
             record_counts[row["record_type"]] = record_counts.get(row["record_type"], 0) + 1
         self.assertEqual(
             record_counts,
-            {"notifiable_disease": 42, "aggregate": 1, "alias": 1, "subtype": 39},
+            {"notifiable_disease": 42, "aggregate": 1, "subtype": 40},
         )
+        self.assertTrue(
+            all(row["record_type"] == "notifiable_disease" for row in rows[:42])
+        )
+        self.assertTrue(all(row["record_type"] == "subtype" for row in rows[42:-1]))
+        self.assertEqual(rows[-1]["record_type"], "aggregate")
+        self.assertEqual(rows[-1]["disease_name_zh"], "合计")
 
     def test_unique_ids_classes_booleans_dates_and_parent_links(self):
         rows = read_csv(HISTORY_CSV)
@@ -74,7 +74,6 @@ class DictionaryValidationTest(unittest.TestCase):
             "甲类管理",
             "乙类管理",
             "乙类按甲类措施管理",
-            "乙类部分按甲类措施管理",
             "丙类管理",
         }
         valid_record_types = {"notifiable_disease", "subtype", "alias", "aggregate"}
@@ -86,7 +85,6 @@ class DictionaryValidationTest(unittest.TestCase):
                 re.compile(r"^NID-(?:[ABC]-[0-9]{3}(?:-S[0-9]{3})?|AGG-[0-9]{3})$"),
             )
             self.assertIn(row["record_type"], valid_record_types)
-            self.assertIn(row["is_current"], {"true", "false"})
             self.assertIn(row["is_notifiable_disease"], {"true", "false"})
             self.assertIn(row["transmission_type"], valid_transmission)
 
@@ -100,7 +98,7 @@ class DictionaryValidationTest(unittest.TestCase):
                 self.assertIn(row["management_class"], valid_management)
                 self.assertIn(row["report_time_limit_hours"], {"2", "24"})
 
-            if row["record_type"] in {"subtype", "alias"}:
+            if row["record_type"] == "subtype":
                 self.assertIn(row["parent_disease_id"], notifiable_ids)
                 self.assertEqual(row["is_notifiable_disease"], "false")
 
@@ -108,17 +106,10 @@ class DictionaryValidationTest(unittest.TestCase):
                 self.assertEqual(row["is_notifiable_disease"], "true")
                 self.assertEqual(row["parent_disease_id"], "")
 
-            start = date.fromisoformat(row["effective_start_date"])
-            if row["effective_end_date"]:
-                self.assertLessEqual(start, date.fromisoformat(row["effective_end_date"]))
-
     def test_current_csv_matches_active_history_rows(self):
         current = sorted(read_csv(CURRENT_CSV), key=lambda row: row["disease_id"])
-        active_history = sorted(
-            [row for row in read_csv(HISTORY_CSV) if row["is_current"] == "true"],
-            key=lambda row: row["disease_id"],
-        )
-        self.assertEqual(current, active_history)
+        history = sorted(read_csv(HISTORY_CSV), key=lambda row: row["disease_id"])
+        self.assertEqual(current, history)
 
     def test_json_matches_current_csv(self):
         csv_rows = read_csv(CURRENT_CSV)
@@ -132,7 +123,6 @@ class DictionaryValidationTest(unittest.TestCase):
             "management_class",
             "parent_disease_id",
             "transmission_type",
-            "effective_end_date",
         }
         for row in csv_rows:
             item = dict(row)
@@ -142,7 +132,6 @@ class DictionaryValidationTest(unittest.TestCase):
                 else None
             )
             item["is_notifiable_disease"] = item["is_notifiable_disease"] == "true"
-            item["is_current"] = item["is_current"] == "true"
             for field in nullable_fields:
                 item[field] = item[field] or None
             normalized_csv_rows.append(item)
@@ -175,7 +164,7 @@ class DictionaryValidationTest(unittest.TestCase):
         by_cisdcp = {row["cisdcp_disease_name"]: row for row in rows}
 
         expected = {
-            "痢疾": "痢疾",
+            "痢疾": "细菌性和阿米巴痢疾",
             "斑疹伤寒": "流行性和地方性斑疹伤寒",
             "其他感染性腹泻病": "其他感染性腹泻病",
         }
@@ -197,6 +186,33 @@ class DictionaryValidationTest(unittest.TestCase):
         self.assertNotIn("Ⅱ期梅毒", syphilis_subtypes)
         self.assertNotIn("III期梅毒", syphilis_subtypes)
 
+    def test_class_b_managed_as_class_a_policy_and_time_limit(self):
+        rows = read_csv(CURRENT_CSV)
+        class_a_managed = [
+            row for row in rows if row["management_class"] == "乙类按甲类措施管理"
+        ]
+        self.assertEqual(
+            {row["disease_id"] for row in class_a_managed},
+            {"NID-B-002", "NID-B-013-S001"},
+        )
+        self.assertTrue(
+            all(row["report_time_limit_hours"] == "2" for row in class_a_managed)
+        )
+        anthrax_parent = next(row for row in rows if row["disease_id"] == "NID-B-013")
+        self.assertEqual(anthrax_parent["management_class"], "乙类管理")
+        self.assertEqual(anthrax_parent["report_time_limit_hours"], "24")
+
+    def test_hiv_is_subtype_and_aggregate_is_last_alignment_row(self):
+        rows = read_csv(CURRENT_CSV)
+        hiv = next(row for row in rows if row["disease_id"] == "NID-B-003-S001")
+        self.assertEqual(hiv["record_type"], "subtype")
+        self.assertEqual(hiv["parent_disease_id"], "NID-B-003")
+
+        self.assertEqual(rows[-1]["disease_id"], "NID-AGG-001")
+        self.assertEqual(rows[-1]["record_type"], "aggregate")
+        self.assertEqual(rows[-1]["is_notifiable_disease"], "false")
+        self.assertEqual(rows[-1]["cisdcp_disease_name"], "合计")
+
     def test_python_reader_smoke_test(self):
         spec = importlib.util.spec_from_file_location("nids_dictionary", PY_HELPER)
         module = importlib.util.module_from_spec(spec)
@@ -208,7 +224,6 @@ class DictionaryValidationTest(unittest.TestCase):
             sum(1 for row in rows if row["is_notifiable_disease"]),
             42,
         )
-        self.assertTrue(rows[0]["is_current"])
         self.assertIsInstance(rows[0]["report_time_limit_hours"], int)
 
         aggregate = next(row for row in rows if row["record_type"] == "aggregate")

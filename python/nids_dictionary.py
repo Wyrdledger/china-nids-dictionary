@@ -39,9 +39,7 @@ def read_nids_csv(path_or_url: str = DEFAULT_CURRENT_CSV) -> list[dict[str, obje
         row["is_notifiable_disease"] = (
             row["is_notifiable_disease"].lower() == "true"
         )
-        row["is_current"] = row["is_current"].lower() == "true"
         row["parent_disease_id"] = row["parent_disease_id"] or None
-        row["effective_end_date"] = row["effective_end_date"] or None
         rows.append(row)
     return rows
 

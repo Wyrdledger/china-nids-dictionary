@@ -11,6 +11,9 @@
 - `disease_name_zh` 表示对外报告使用的正式中文名称。
 - `cisdcp_disease_name` 精确对应 CISDCP 疫情分析报表中的 `疾病病种` 列。
 - 字段迁移：`official_name_zh` 和 `report_name_zh` 已合并为 `disease_name_zh`；`raw_match_name_zh` 已更名为 `cisdcp_disease_name`。
+- 字段顺序按记录标识、记录类型、父子关系、名称、法定分类/管理、传播类型排列。
+- `合计` 为 `aggregate` 记录，不是病种，仅用于对应 CISDCP 疫情分析报表结构，固定放在最后一行。
+- 当前 `乙类按甲类措施管理` 仅适用于 `传染性非典型肺炎` 和 `肺炭疽`，两者网络直报时限均为 2 小时。
 - 旧周报 `tier=N` 记录进入主表，标记为 `subtype`、`alias` 或 `aggregate`。
 - 法定病种名称、分类和管理方式仍以法律公告来源为准；旧周报字典仅作为业务映射来源。
 - 本轮不改 `Infection_Weekly`，不生成 GBK 兼容导出文件。

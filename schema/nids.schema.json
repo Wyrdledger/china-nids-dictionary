@@ -4,21 +4,16 @@
   "type": "object",
   "required": [
     "disease_id",
+    "record_type",
+    "is_notifiable_disease",
+    "parent_disease_id",
     "disease_name_zh",
+    "cisdcp_disease_name",
     "disease_name_en",
     "legal_class",
     "management_class",
     "report_time_limit_hours",
-    "record_type",
-    "is_notifiable_disease",
-    "parent_disease_id",
-    "cisdcp_disease_name",
-    "transmission_type",
-    "is_current",
-    "effective_start_date",
-    "effective_end_date",
-    "source_id",
-    "source_note"
+    "transmission_type"
   ],
   "additionalProperties": false,
   "properties": {
@@ -26,7 +21,23 @@
       "type": "string",
       "pattern": "^NID-(?:[ABC]-[0-9]{3}(?:-S[0-9]{3})?|AGG-[0-9]{3})$"
     },
+    "record_type": {
+      "type": "string",
+      "enum": ["notifiable_disease", "subtype", "alias", "aggregate"]
+    },
+    "is_notifiable_disease": {
+      "type": "boolean"
+    },
+    "parent_disease_id": {
+      "type": ["string", "null"],
+      "pattern": "^NID-[ABC]-[0-9]{3}$"
+    },
     "disease_name_zh": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[^()]+$"
+    },
+    "cisdcp_disease_name": {
       "type": "string",
       "minLength": 1,
       "pattern": "^[^()]+$"
@@ -44,7 +55,6 @@
         "甲类管理",
         "乙类管理",
         "乙类按甲类措施管理",
-        "乙类部分按甲类措施管理",
         "丙类管理",
         null
       ]
@@ -53,43 +63,9 @@
       "type": ["integer", "null"],
       "enum": [2, 24, null]
     },
-    "record_type": {
-      "type": "string",
-      "enum": ["notifiable_disease", "subtype", "alias", "aggregate"]
-    },
-    "is_notifiable_disease": {
-      "type": "boolean"
-    },
-    "parent_disease_id": {
-      "type": ["string", "null"],
-      "pattern": "^NID-[ABC]-[0-9]{3}$"
-    },
-    "cisdcp_disease_name": {
-      "type": "string",
-      "minLength": 1,
-      "pattern": "^[^()]+$"
-    },
     "transmission_type": {
       "type": ["string", "null"],
       "enum": ["呼吸道传染病", "肠道传染病", null]
-    },
-    "is_current": {
-      "type": "boolean"
-    },
-    "effective_start_date": {
-      "type": "string",
-      "format": "date"
-    },
-    "effective_end_date": {
-      "type": ["string", "null"],
-      "format": "date"
-    },
-    "source_id": {
-      "type": "string",
-      "minLength": 1
-    },
-    "source_note": {
-      "type": "string"
     }
   }
 }

@@ -1,84 +1,84 @@
-disease_id,disease_name_zh,disease_name_en,legal_class,management_class,report_time_limit_hours,record_type,is_notifiable_disease,parent_disease_id,cisdcp_disease_name,transmission_type,is_current,effective_start_date,effective_end_date,source_id,source_note
-NID-A-001,鼠疫,Plague,甲类,甲类管理,2,notifiable_disease,true,,鼠疫,,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-A-002,霍乱,Cholera,甲类,甲类管理,2,notifiable_disease,true,,霍乱,肠道传染病,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-B-001,新型冠状病毒感染,COVID-19,乙类,乙类管理,24,notifiable_disease,true,,新型冠状病毒感染,呼吸道传染病,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-B-002,传染性非典型肺炎,Severe acute respiratory syndrome,乙类,乙类按甲类措施管理,24,notifiable_disease,true,,传染性非典型肺炎,呼吸道传染病,true,2025-09-01,,law-2025,2025年传染病防治法第四条规定采取甲类传染病预防控制措施
-NID-B-003,艾滋病,HIV/AIDS,乙类,乙类管理,24,notifiable_disease,true,,艾滋病,,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-B-004,病毒性肝炎,Viral hepatitis,乙类,乙类管理,24,notifiable_disease,true,,病毒性肝炎,,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-B-005,脊髓灰质炎,Poliomyelitis,乙类,乙类管理,24,notifiable_disease,true,,脊灰,肠道传染病,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-B-006,人感染新亚型流感,Human infection with novel influenza subtype,乙类,乙类管理,24,notifiable_disease,true,,人感染新亚型流感,,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-B-007,麻疹,Measles,乙类,乙类管理,24,notifiable_disease,true,,麻疹,呼吸道传染病,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-B-008,流行性出血热,Epidemic hemorrhagic fever,乙类,乙类管理,24,notifiable_disease,true,,出血热,,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-B-009,狂犬病,Rabies,乙类,乙类管理,24,notifiable_disease,true,,狂犬病,,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-B-010,流行性乙型脑炎,Japanese encephalitis,乙类,乙类管理,24,notifiable_disease,true,,乙脑,,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-B-011,登革热,Dengue fever,乙类,乙类管理,24,notifiable_disease,true,,登革热,,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-B-012,猴痘,Mpox,乙类,乙类管理,24,notifiable_disease,true,,猴痘,,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-B-013,炭疽,Anthrax,乙类,乙类部分按甲类措施管理,24,notifiable_disease,true,,炭疽,肠道传染病,true,2025-09-01,,law-2025,肺炭疽按甲类传染病预防控制措施管理
-NID-B-014,痢疾,Bacillary and amebic dysentery,乙类,乙类管理,24,notifiable_disease,true,,痢疾,肠道传染病,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-B-015,肺结核,Pulmonary tuberculosis,乙类,乙类管理,24,notifiable_disease,true,,肺结核,呼吸道传染病,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-B-016,伤寒和副伤寒,Typhoid and paratyphoid fever,乙类,乙类管理,24,notifiable_disease,true,,伤寒和副伤寒,肠道传染病,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-B-017,流行性脑脊髓膜炎,Epidemic cerebrospinal meningitis,乙类,乙类管理,24,notifiable_disease,true,,流脑,呼吸道传染病,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-B-018,百日咳,Pertussis,乙类,乙类管理,24,notifiable_disease,true,,百日咳,呼吸道传染病,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-B-019,白喉,Diphtheria,乙类,乙类管理,24,notifiable_disease,true,,白喉,呼吸道传染病,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-B-020,新生儿破伤风,Neonatal tetanus,乙类,乙类管理,24,notifiable_disease,true,,新生儿破伤风,,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-B-021,猩红热,Scarlet fever,乙类,乙类管理,24,notifiable_disease,true,,猩红热,呼吸道传染病,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-B-022,布鲁氏菌病,Brucellosis,乙类,乙类管理,24,notifiable_disease,true,,布病,,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-B-023,淋病,Gonorrhea,乙类,乙类管理,24,notifiable_disease,true,,淋病,,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-B-024,梅毒,Syphilis,乙类,乙类管理,24,notifiable_disease,true,,梅毒,,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-B-025,钩端螺旋体病,Leptospirosis,乙类,乙类管理,24,notifiable_disease,true,,钩体病,,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-B-026,血吸虫病,Schistosomiasis,乙类,乙类管理,24,notifiable_disease,true,,血吸虫病,,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-B-027,疟疾,Malaria,乙类,乙类管理,24,notifiable_disease,true,,疟疾,,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-B-028,基孔肯雅热,Chikungunya fever,乙类,乙类管理,24,notifiable_disease,true,,基孔肯雅热,,true,2026-04-01,,nhc-2026-03,2026年第3号公告自2026-04-01起纳入乙类管理
-NID-B-029,发热伴血小板减少综合征,Severe fever with thrombocytopenia syndrome,乙类,乙类管理,24,notifiable_disease,true,,发热伴血小板减少综合征,,true,2026-04-01,,nhc-2026-03,2026年第3号公告自2026-04-01起纳入乙类管理
-NID-C-001,流行性感冒,Influenza,丙类,丙类管理,24,notifiable_disease,true,,流行性感冒,呼吸道传染病,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-C-002,流行性腮腺炎,Mumps,丙类,丙类管理,24,notifiable_disease,true,,流行性腮腺炎,呼吸道传染病,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-C-003,风疹,Rubella,丙类,丙类管理,24,notifiable_disease,true,,风疹,呼吸道传染病,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-C-004,急性出血性结膜炎,Acute hemorrhagic conjunctivitis,丙类,丙类管理,24,notifiable_disease,true,,急性出血性结膜炎,肠道传染病,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-C-005,麻风病,Leprosy,丙类,丙类管理,24,notifiable_disease,true,,麻风病,呼吸道传染病,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-C-006,流行性和地方性斑疹伤寒,Epidemic and endemic typhus,丙类,丙类管理,24,notifiable_disease,true,,斑疹伤寒,,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-C-007,黑热病,Kala-azar,丙类,丙类管理,24,notifiable_disease,true,,黑热病,,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-C-008,包虫病,Echinococcosis,丙类,丙类管理,24,notifiable_disease,true,,包虫病,,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-C-009,丝虫病,Filariasis,丙类,丙类管理,24,notifiable_disease,true,,丝虫病,,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-C-010,手足口病,Hand foot and mouth disease,丙类,丙类管理,24,notifiable_disease,true,,手足口病,肠道传染病,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
-NID-C-011,其他感染性腹泻病,Infectious diarrhea other than cholera dysentery typhoid and paratyphoid,丙类,丙类管理,24,notifiable_disease,true,,其他感染性腹泻病,肠道传染病,true,2025-09-01,,law-2025,不包括霍乱、细菌性和阿米巴性痢疾、伤寒和副伤寒
-NID-AGG-001,合计,,,,,aggregate,false,,合计,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理汇总项
-NID-B-003-S001,HIV,,乙类,乙类管理,24,alias,false,NID-B-003,HIV,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-004-S001,甲肝,,乙类,乙类管理,24,subtype,false,NID-B-004,甲肝,肠道传染病,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-004-S002,乙肝,,乙类,乙类管理,24,subtype,false,NID-B-004,乙肝,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-004-S003,丙肝,,乙类,乙类管理,24,subtype,false,NID-B-004,丙肝,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-004-S004,丁肝,,乙类,乙类管理,24,subtype,false,NID-B-004,丁肝,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-004-S005,戊肝,,乙类,乙类管理,24,subtype,false,NID-B-004,戊肝,肠道传染病,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-004-S006,肝炎（未分型）,,乙类,乙类管理,24,subtype,false,NID-B-004,肝炎（未分型）,肠道传染病,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-006-S001,H3N8,,乙类,乙类管理,24,subtype,false,NID-B-006,H3N8,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-006-S002,H5N1,,乙类,乙类管理,24,subtype,false,NID-B-006,H5N1,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-006-S003,H5N6,,乙类,乙类管理,24,subtype,false,NID-B-006,H5N6,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-006-S004,H7N4,,乙类,乙类管理,24,subtype,false,NID-B-006,H7N4,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-006-S005,H7N9,,乙类,乙类管理,24,subtype,false,NID-B-006,H7N9,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-006-S006,H9N2,,乙类,乙类管理,24,subtype,false,NID-B-006,H9N2,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-006-S007,H10N3,,乙类,乙类管理,24,subtype,false,NID-B-006,H10N3,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-006-S008,H10N5,,乙类,乙类管理,24,subtype,false,NID-B-006,H10N5,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-006-S009,H10N8,,乙类,乙类管理,24,subtype,false,NID-B-006,H10N8,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-006-S010,欧亚类禽H1N1,,乙类,乙类管理,24,subtype,false,NID-B-006,欧亚类禽H1N1,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-006-S011,其他亚型,,乙类,乙类管理,24,subtype,false,NID-B-006,其他亚型,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-013-S001,肺炭疽,,乙类,乙类部分按甲类措施管理,24,subtype,false,NID-B-013,肺炭疽,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-013-S002,皮肤炭疽,,乙类,乙类部分按甲类措施管理,24,subtype,false,NID-B-013,皮肤炭疽,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-013-S003,炭疽（未分型）,,乙类,乙类部分按甲类措施管理,24,subtype,false,NID-B-013,炭疽（未分型）,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-014-S001,细菌性痢疾,,乙类,乙类管理,24,subtype,false,NID-B-014,细菌性痢疾,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-014-S002,阿米巴性痢疾,,乙类,乙类管理,24,subtype,false,NID-B-014,阿米巴性痢疾,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-015-S001,利福平耐药,,乙类,乙类管理,24,subtype,false,NID-B-015,利福平耐药,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-015-S002,病原学阳性,,乙类,乙类管理,24,subtype,false,NID-B-015,病原学阳性,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-015-S003,病原学阴性,,乙类,乙类管理,24,subtype,false,NID-B-015,病原学阴性,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-015-S004,无病原学结果,,乙类,乙类管理,24,subtype,false,NID-B-015,无病原学结果,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-016-S001,伤寒,,乙类,乙类管理,24,subtype,false,NID-B-016,伤寒,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-016-S002,副伤寒,,乙类,乙类管理,24,subtype,false,NID-B-016,副伤寒,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-024-S001,一期梅毒,,乙类,乙类管理,24,subtype,false,NID-B-024,一期梅毒,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-024-S002,二期梅毒,,乙类,乙类管理,24,subtype,false,NID-B-024,二期梅毒,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-024-S003,三期梅毒,,乙类,乙类管理,24,subtype,false,NID-B-024,三期梅毒,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-024-S004,胎传梅毒,,乙类,乙类管理,24,subtype,false,NID-B-024,胎传梅毒,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-024-S005,隐性梅毒,,乙类,乙类管理,24,subtype,false,NID-B-024,隐性梅毒,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-027-S001,间日疟,,乙类,乙类管理,24,subtype,false,NID-B-027,间日疟,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-027-S002,恶性疟,,乙类,乙类管理,24,subtype,false,NID-B-027,恶性疟,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-027-S003,三日疟,,乙类,乙类管理,24,subtype,false,NID-B-027,三日疟,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-027-S004,卵形疟,,乙类,乙类管理,24,subtype,false,NID-B-027,卵形疟,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-027-S005,混合感染,,乙类,乙类管理,24,subtype,false,NID-B-027,混合感染,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
-NID-B-027-S006,疟疾（未分型）,,乙类,乙类管理,24,subtype,false,NID-B-027,疟疾（未分型）,,true,2026-06-01,,weekly-dictionary-2026-06-01,旧周报 dictionary.csv 人工整理子项或别名映射
+disease_id,record_type,is_notifiable_disease,parent_disease_id,disease_name_zh,cisdcp_disease_name,disease_name_en,legal_class,management_class,report_time_limit_hours,transmission_type
+NID-A-001,notifiable_disease,true,,鼠疫,鼠疫,Plague,甲类,甲类管理,2,
+NID-A-002,notifiable_disease,true,,霍乱,霍乱,Cholera,甲类,甲类管理,2,肠道传染病
+NID-B-001,notifiable_disease,true,,新型冠状病毒感染,新型冠状病毒感染,COVID-19,乙类,乙类管理,24,呼吸道传染病
+NID-B-002,notifiable_disease,true,,传染性非典型肺炎,传染性非典型肺炎,Severe acute respiratory syndrome,乙类,乙类按甲类措施管理,2,呼吸道传染病
+NID-B-003,notifiable_disease,true,,艾滋病,艾滋病,HIV/AIDS,乙类,乙类管理,24,
+NID-B-004,notifiable_disease,true,,病毒性肝炎,病毒性肝炎,Viral hepatitis,乙类,乙类管理,24,
+NID-B-005,notifiable_disease,true,,脊髓灰质炎,脊灰,Poliomyelitis,乙类,乙类管理,24,肠道传染病
+NID-B-006,notifiable_disease,true,,人感染新亚型流感,人感染新亚型流感,Human infection with novel influenza subtype,乙类,乙类管理,24,
+NID-B-007,notifiable_disease,true,,麻疹,麻疹,Measles,乙类,乙类管理,24,呼吸道传染病
+NID-B-008,notifiable_disease,true,,流行性出血热,出血热,Epidemic hemorrhagic fever,乙类,乙类管理,24,
+NID-B-009,notifiable_disease,true,,狂犬病,狂犬病,Rabies,乙类,乙类管理,24,
+NID-B-010,notifiable_disease,true,,流行性乙型脑炎,乙脑,Japanese encephalitis,乙类,乙类管理,24,
+NID-B-011,notifiable_disease,true,,登革热,登革热,Dengue fever,乙类,乙类管理,24,
+NID-B-012,notifiable_disease,true,,猴痘,猴痘,Mpox,乙类,乙类管理,24,
+NID-B-013,notifiable_disease,true,,炭疽,炭疽,Anthrax,乙类,乙类管理,24,肠道传染病
+NID-B-014,notifiable_disease,true,,细菌性和阿米巴痢疾,痢疾,Bacillary and amebic dysentery,乙类,乙类管理,24,肠道传染病
+NID-B-015,notifiable_disease,true,,肺结核,肺结核,Pulmonary tuberculosis,乙类,乙类管理,24,呼吸道传染病
+NID-B-016,notifiable_disease,true,,伤寒和副伤寒,伤寒和副伤寒,Typhoid and paratyphoid fever,乙类,乙类管理,24,肠道传染病
+NID-B-017,notifiable_disease,true,,流行性脑脊髓膜炎,流脑,Epidemic cerebrospinal meningitis,乙类,乙类管理,24,呼吸道传染病
+NID-B-018,notifiable_disease,true,,百日咳,百日咳,Pertussis,乙类,乙类管理,24,呼吸道传染病
+NID-B-019,notifiable_disease,true,,白喉,白喉,Diphtheria,乙类,乙类管理,24,呼吸道传染病
+NID-B-020,notifiable_disease,true,,新生儿破伤风,新生儿破伤风,Neonatal tetanus,乙类,乙类管理,24,
+NID-B-021,notifiable_disease,true,,猩红热,猩红热,Scarlet fever,乙类,乙类管理,24,呼吸道传染病
+NID-B-022,notifiable_disease,true,,布鲁氏菌病,布病,Brucellosis,乙类,乙类管理,24,
+NID-B-023,notifiable_disease,true,,淋病,淋病,Gonorrhea,乙类,乙类管理,24,
+NID-B-024,notifiable_disease,true,,梅毒,梅毒,Syphilis,乙类,乙类管理,24,
+NID-B-025,notifiable_disease,true,,钩端螺旋体病,钩体病,Leptospirosis,乙类,乙类管理,24,
+NID-B-026,notifiable_disease,true,,血吸虫病,血吸虫病,Schistosomiasis,乙类,乙类管理,24,
+NID-B-027,notifiable_disease,true,,疟疾,疟疾,Malaria,乙类,乙类管理,24,
+NID-B-028,notifiable_disease,true,,基孔肯雅热,基孔肯雅热,Chikungunya fever,乙类,乙类管理,24,
+NID-B-029,notifiable_disease,true,,发热伴血小板减少综合征,发热伴血小板减少综合征,Severe fever with thrombocytopenia syndrome,乙类,乙类管理,24,
+NID-C-001,notifiable_disease,true,,流行性感冒,流行性感冒,Influenza,丙类,丙类管理,24,呼吸道传染病
+NID-C-002,notifiable_disease,true,,流行性腮腺炎,流行性腮腺炎,Mumps,丙类,丙类管理,24,呼吸道传染病
+NID-C-003,notifiable_disease,true,,风疹,风疹,Rubella,丙类,丙类管理,24,呼吸道传染病
+NID-C-004,notifiable_disease,true,,急性出血性结膜炎,急性出血性结膜炎,Acute hemorrhagic conjunctivitis,丙类,丙类管理,24,肠道传染病
+NID-C-005,notifiable_disease,true,,麻风病,麻风病,Leprosy,丙类,丙类管理,24,呼吸道传染病
+NID-C-006,notifiable_disease,true,,流行性和地方性斑疹伤寒,斑疹伤寒,Epidemic and endemic typhus,丙类,丙类管理,24,
+NID-C-007,notifiable_disease,true,,黑热病,黑热病,Kala-azar,丙类,丙类管理,24,
+NID-C-008,notifiable_disease,true,,包虫病,包虫病,Echinococcosis,丙类,丙类管理,24,
+NID-C-009,notifiable_disease,true,,丝虫病,丝虫病,Filariasis,丙类,丙类管理,24,
+NID-C-010,notifiable_disease,true,,手足口病,手足口病,Hand foot and mouth disease,丙类,丙类管理,24,肠道传染病
+NID-C-011,notifiable_disease,true,,其他感染性腹泻病,其他感染性腹泻病,Infectious diarrhea other than cholera dysentery typhoid and paratyphoid,丙类,丙类管理,24,肠道传染病
+NID-B-003-S001,subtype,false,NID-B-003,HIV,HIV,,乙类,乙类管理,24,
+NID-B-004-S001,subtype,false,NID-B-004,甲肝,甲肝,,乙类,乙类管理,24,肠道传染病
+NID-B-004-S002,subtype,false,NID-B-004,乙肝,乙肝,,乙类,乙类管理,24,
+NID-B-004-S003,subtype,false,NID-B-004,丙肝,丙肝,,乙类,乙类管理,24,
+NID-B-004-S004,subtype,false,NID-B-004,丁肝,丁肝,,乙类,乙类管理,24,
+NID-B-004-S005,subtype,false,NID-B-004,戊肝,戊肝,,乙类,乙类管理,24,肠道传染病
+NID-B-004-S006,subtype,false,NID-B-004,肝炎（未分型）,肝炎（未分型）,,乙类,乙类管理,24,肠道传染病
+NID-B-006-S001,subtype,false,NID-B-006,H3N8,H3N8,,乙类,乙类管理,24,
+NID-B-006-S002,subtype,false,NID-B-006,H5N1,H5N1,,乙类,乙类管理,24,
+NID-B-006-S003,subtype,false,NID-B-006,H5N6,H5N6,,乙类,乙类管理,24,
+NID-B-006-S004,subtype,false,NID-B-006,H7N4,H7N4,,乙类,乙类管理,24,
+NID-B-006-S005,subtype,false,NID-B-006,H7N9,H7N9,,乙类,乙类管理,24,
+NID-B-006-S006,subtype,false,NID-B-006,H9N2,H9N2,,乙类,乙类管理,24,
+NID-B-006-S007,subtype,false,NID-B-006,H10N3,H10N3,,乙类,乙类管理,24,
+NID-B-006-S008,subtype,false,NID-B-006,H10N5,H10N5,,乙类,乙类管理,24,
+NID-B-006-S009,subtype,false,NID-B-006,H10N8,H10N8,,乙类,乙类管理,24,
+NID-B-006-S010,subtype,false,NID-B-006,欧亚类禽H1N1,欧亚类禽H1N1,,乙类,乙类管理,24,
+NID-B-006-S011,subtype,false,NID-B-006,其他亚型,其他亚型,,乙类,乙类管理,24,
+NID-B-013-S001,subtype,false,NID-B-013,肺炭疽,肺炭疽,,乙类,乙类按甲类措施管理,2,
+NID-B-013-S002,subtype,false,NID-B-013,皮肤炭疽,皮肤炭疽,,乙类,乙类管理,24,
+NID-B-013-S003,subtype,false,NID-B-013,炭疽（未分型）,炭疽（未分型）,,乙类,乙类管理,24,
+NID-B-014-S001,subtype,false,NID-B-014,细菌性痢疾,细菌性痢疾,,乙类,乙类管理,24,
+NID-B-014-S002,subtype,false,NID-B-014,阿米巴性痢疾,阿米巴性痢疾,,乙类,乙类管理,24,
+NID-B-015-S001,subtype,false,NID-B-015,利福平耐药,利福平耐药,,乙类,乙类管理,24,
+NID-B-015-S002,subtype,false,NID-B-015,病原学阳性,病原学阳性,,乙类,乙类管理,24,
+NID-B-015-S003,subtype,false,NID-B-015,病原学阴性,病原学阴性,,乙类,乙类管理,24,
+NID-B-015-S004,subtype,false,NID-B-015,无病原学结果,无病原学结果,,乙类,乙类管理,24,
+NID-B-016-S001,subtype,false,NID-B-016,伤寒,伤寒,,乙类,乙类管理,24,
+NID-B-016-S002,subtype,false,NID-B-016,副伤寒,副伤寒,,乙类,乙类管理,24,
+NID-B-024-S001,subtype,false,NID-B-024,一期梅毒,一期梅毒,,乙类,乙类管理,24,
+NID-B-024-S002,subtype,false,NID-B-024,二期梅毒,二期梅毒,,乙类,乙类管理,24,
+NID-B-024-S003,subtype,false,NID-B-024,三期梅毒,三期梅毒,,乙类,乙类管理,24,
+NID-B-024-S004,subtype,false,NID-B-024,胎传梅毒,胎传梅毒,,乙类,乙类管理,24,
+NID-B-024-S005,subtype,false,NID-B-024,隐性梅毒,隐性梅毒,,乙类,乙类管理,24,
+NID-B-027-S001,subtype,false,NID-B-027,间日疟,间日疟,,乙类,乙类管理,24,
+NID-B-027-S002,subtype,false,NID-B-027,恶性疟,恶性疟,,乙类,乙类管理,24,
+NID-B-027-S003,subtype,false,NID-B-027,三日疟,三日疟,,乙类,乙类管理,24,
+NID-B-027-S004,subtype,false,NID-B-027,卵形疟,卵形疟,,乙类,乙类管理,24,
+NID-B-027-S005,subtype,false,NID-B-027,混合感染,混合感染,,乙类,乙类管理,24,
+NID-B-027-S006,subtype,false,NID-B-027,疟疾（未分型）,疟疾（未分型）,,乙类,乙类管理,24,
+NID-AGG-001,aggregate,false,,合计,合计,,,,,
