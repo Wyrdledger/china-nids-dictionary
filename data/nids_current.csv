@@ -1,0 +1,43 @@
+disease_id,disease_name_zh,disease_name_en,legal_class,management_class,report_time_limit_hours,is_current,effective_start_date,effective_end_date,source_id,source_note
+NID-A-001,鼠疫,Plague,甲类,甲类管理,2,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-A-002,霍乱,Cholera,甲类,甲类管理,2,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-B-001,新型冠状病毒感染,COVID-19,乙类,乙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-B-002,传染性非典型肺炎,Severe acute respiratory syndrome,乙类,乙类按甲类措施管理,24,true,2025-09-01,,law-2025,2025年传染病防治法第四条规定采取甲类传染病预防控制措施
+NID-B-003,艾滋病,HIV/AIDS,乙类,乙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-B-004,病毒性肝炎,Viral hepatitis,乙类,乙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-B-005,脊髓灰质炎,Poliomyelitis,乙类,乙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-B-006,人感染新亚型流感,Human infection with novel influenza subtype,乙类,乙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-B-007,麻疹,Measles,乙类,乙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-B-008,流行性出血热,Epidemic hemorrhagic fever,乙类,乙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-B-009,狂犬病,Rabies,乙类,乙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-B-010,流行性乙型脑炎,Japanese encephalitis,乙类,乙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-B-011,登革热,Dengue fever,乙类,乙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-B-012,猴痘,Mpox,乙类,乙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-B-013,炭疽,Anthrax,乙类,乙类部分按甲类措施管理,24,true,2025-09-01,,law-2025,肺炭疽按甲类传染病预防控制措施管理
+NID-B-014,细菌性和阿米巴性痢疾,Bacillary and amebic dysentery,乙类,乙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-B-015,肺结核,Pulmonary tuberculosis,乙类,乙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-B-016,伤寒和副伤寒,Typhoid and paratyphoid fever,乙类,乙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-B-017,流行性脑脊髓膜炎,Epidemic cerebrospinal meningitis,乙类,乙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-B-018,百日咳,Pertussis,乙类,乙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-B-019,白喉,Diphtheria,乙类,乙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-B-020,新生儿破伤风,Neonatal tetanus,乙类,乙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-B-021,猩红热,Scarlet fever,乙类,乙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-B-022,布鲁氏菌病,Brucellosis,乙类,乙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-B-023,淋病,Gonorrhea,乙类,乙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-B-024,梅毒,Syphilis,乙类,乙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-B-025,钩端螺旋体病,Leptospirosis,乙类,乙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-B-026,血吸虫病,Schistosomiasis,乙类,乙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-B-027,疟疾,Malaria,乙类,乙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-B-028,基孔肯雅热,Chikungunya fever,乙类,乙类管理,24,true,2026-04-01,,nhc-2026-03,2026年第3号公告自2026-04-01起纳入乙类管理
+NID-B-029,发热伴血小板减少综合征,Severe fever with thrombocytopenia syndrome,乙类,乙类管理,24,true,2026-04-01,,nhc-2026-03,2026年第3号公告自2026-04-01起纳入乙类管理
+NID-C-001,流行性感冒,Influenza,丙类,丙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-C-002,流行性腮腺炎,Mumps,丙类,丙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-C-003,风疹,Rubella,丙类,丙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-C-004,急性出血性结膜炎,Acute hemorrhagic conjunctivitis,丙类,丙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-C-005,麻风病,Leprosy,丙类,丙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-C-006,流行性和地方性斑疹伤寒,Epidemic and endemic typhus,丙类,丙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-C-007,黑热病,Kala-azar,丙类,丙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-C-008,包虫病,Echinococcosis,丙类,丙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-C-009,丝虫病,Filariasis,丙类,丙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-C-010,手足口病,Hand foot and mouth disease,丙类,丙类管理,24,true,2025-09-01,,law-2025,2025年传染病防治法当前目录基线
+NID-C-011,感染性腹泻病,Infectious diarrhea other than cholera dysentery typhoid and paratyphoid,丙类,丙类管理,24,true,2025-09-01,,law-2025,不包括霍乱、细菌性和阿米巴性痢疾、伤寒和副伤寒

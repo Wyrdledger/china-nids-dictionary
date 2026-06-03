@@ -1,0 +1,12 @@
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+local_input/
+local_output/
+*.log

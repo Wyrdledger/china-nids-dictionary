@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "China Notifiable Infectious Diseases Dictionary Row",
+  "type": "object",
+  "required": [
+    "disease_id",
+    "disease_name_zh",
+    "disease_name_en",
+    "legal_class",
+    "management_class",
+    "report_time_limit_hours",
+    "is_current",
+    "effective_start_date",
+    "effective_end_date",
+    "source_id",
+    "source_note"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "disease_id": {
+      "type": "string",
+      "pattern": "^NID-[ABC]-[0-9]{3}$"
+    },
+    "disease_name_zh": {
+      "type": "string",
+      "minLength": 1
+    },
+    "disease_name_en": {
+      "type": "string",
+      "minLength": 1
+    },
+    "legal_class": {
+      "type": "string",
+      "enum": ["甲类", "乙类", "丙类"]
+    },
+    "management_class": {
+      "type": "string",
+      "enum": [
+        "甲类管理",
+        "乙类管理",
+        "乙类按甲类措施管理",
+        "乙类部分按甲类措施管理",
+        "丙类管理"
+      ]
+    },
+    "report_time_limit_hours": {
+      "type": "integer",
+      "enum": [2, 24]
+    },
+    "is_current": {
+      "type": "boolean"
+    },
+    "effective_start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "effective_end_date": {
+      "type": ["string", "null"],
+      "format": "date"
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_note": {
+      "type": "string"
+    }
+  }
+}
