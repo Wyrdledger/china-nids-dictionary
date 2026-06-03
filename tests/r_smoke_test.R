@@ -39,4 +39,6 @@ stopifnot(is.na(df$report_time_limit_hours[df$record_type == "aggregate"]))
 stopifnot(tail(df$disease_name_zh, 1) == "合计")
 stopifnot(df$record_type[df$cisdcp_disease_name == "HIV"] == "subtype")
 stopifnot(df$disease_name_zh[df$cisdcp_disease_name == "痢疾"] == "细菌性和阿米巴痢疾")
-stopifnot(all(df$report_time_limit_hours[df$management_class == "乙类按甲类措施管理"] == 2))
+class_a_managed <- df[df$legal_class == "乙类" & df$management_class == "甲类管理", ]
+stopifnot(setequal(class_a_managed$disease_id, c("NID-B-002", "NID-B-013-S001")))
+stopifnot(all(class_a_managed$report_time_limit_hours == 2))

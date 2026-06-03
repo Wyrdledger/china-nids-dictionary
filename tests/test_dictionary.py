@@ -73,7 +73,6 @@ class DictionaryValidationTest(unittest.TestCase):
         valid_management = {
             "甲类管理",
             "乙类管理",
-            "乙类按甲类措施管理",
             "丙类管理",
         }
         valid_record_types = {"notifiable_disease", "subtype", "alias", "aggregate"}
@@ -189,7 +188,10 @@ class DictionaryValidationTest(unittest.TestCase):
     def test_class_b_managed_as_class_a_policy_and_time_limit(self):
         rows = read_csv(CURRENT_CSV)
         class_a_managed = [
-            row for row in rows if row["management_class"] == "乙类按甲类措施管理"
+            row
+            for row in rows
+            if row["legal_class"] == "乙类"
+            and row["management_class"] == "甲类管理"
         ]
         self.assertEqual(
             {row["disease_id"] for row in class_a_managed},

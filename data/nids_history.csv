@@ -2,7 +2,7 @@ disease_id,record_type,is_notifiable_disease,parent_disease_id,disease_name_zh,c
 NID-A-001,notifiable_disease,true,,鼠疫,鼠疫,Plague,甲类,甲类管理,2,
 NID-A-002,notifiable_disease,true,,霍乱,霍乱,Cholera,甲类,甲类管理,2,肠道传染病
 NID-B-001,notifiable_disease,true,,新型冠状病毒感染,新型冠状病毒感染,COVID-19,乙类,乙类管理,24,呼吸道传染病
-NID-B-002,notifiable_disease,true,,传染性非典型肺炎,传染性非典型肺炎,Severe acute respiratory syndrome,乙类,乙类按甲类措施管理,2,呼吸道传染病
+NID-B-002,notifiable_disease,true,,传染性非典型肺炎,传染性非典型肺炎,Severe acute respiratory syndrome,乙类,甲类管理,2,呼吸道传染病
 NID-B-003,notifiable_disease,true,,艾滋病,艾滋病,HIV/AIDS,乙类,乙类管理,24,
 NID-B-004,notifiable_disease,true,,病毒性肝炎,病毒性肝炎,Viral hepatitis,乙类,乙类管理,24,
 NID-B-005,notifiable_disease,true,,脊髓灰质炎,脊灰,Poliomyelitis,乙类,乙类管理,24,肠道传染病
@@ -59,7 +59,7 @@ NID-B-006-S008,subtype,false,NID-B-006,H10N5,H10N5,,乙类,乙类管理,24,
 NID-B-006-S009,subtype,false,NID-B-006,H10N8,H10N8,,乙类,乙类管理,24,
 NID-B-006-S010,subtype,false,NID-B-006,欧亚类禽H1N1,欧亚类禽H1N1,,乙类,乙类管理,24,
 NID-B-006-S011,subtype,false,NID-B-006,其他亚型,其他亚型,,乙类,乙类管理,24,
-NID-B-013-S001,subtype,false,NID-B-013,肺炭疽,肺炭疽,,乙类,乙类按甲类措施管理,2,
+NID-B-013-S001,subtype,false,NID-B-013,肺炭疽,肺炭疽,,乙类,甲类管理,2,
 NID-B-013-S002,subtype,false,NID-B-013,皮肤炭疽,皮肤炭疽,,乙类,乙类管理,24,
 NID-B-013-S003,subtype,false,NID-B-013,炭疽（未分型）,炭疽（未分型）,,乙类,乙类管理,24,
 NID-B-014-S001,subtype,false,NID-B-014,细菌性痢疾,细菌性痢疾,,乙类,乙类管理,24,

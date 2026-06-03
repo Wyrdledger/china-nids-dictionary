@@ -47,7 +47,7 @@
     "cisdcp_disease_name": "传染性非典型肺炎",
     "disease_name_en": "Severe acute respiratory syndrome",
     "legal_class": "乙类",
-    "management_class": "乙类按甲类措施管理",
+    "management_class": "甲类管理",
     "report_time_limit_hours": 2,
     "transmission_type": "呼吸道传染病"
   },
@@ -788,7 +788,7 @@
     "cisdcp_disease_name": "肺炭疽",
     "disease_name_en": null,
     "legal_class": "乙类",
-    "management_class": "乙类按甲类措施管理",
+    "management_class": "甲类管理",
     "report_time_limit_hours": 2,
     "transmission_type": null
   },

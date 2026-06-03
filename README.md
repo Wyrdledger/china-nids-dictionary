@@ -96,7 +96,7 @@ nids <- read_nids_dictionary(url)
 - `record_type == "aggregate"` 的 `合计` 不是病种，只为与 CISDCP 疫情分析报表结构对应，固定放在最后一行。
 - `disease_name_zh` 是对外报告使用的正式中文名称。
 - `cisdcp_disease_name` 必须能精确匹配 CISDCP 导出的疫情分析报表 `疾病病种` 列。
-- 当前 `乙类按甲类措施管理` 仅适用于 `传染性非典型肺炎` 和 `肺炭疽`，网络直报时限均为 2 小时。
+- 当前 `传染性非典型肺炎` 和 `肺炭疽` 的 `management_class` 记为 `甲类管理`，网络直报时限均为 2 小时。
 - 中文疾病名称字段统一使用中文全角括号 `（`、`）`，不得使用英文半角括号 `(`、`)`。
 - 字段迁移：`official_name_zh` 和 `report_name_zh` 已合并为 `disease_name_zh`；`raw_match_name_zh` 已更名为 `cisdcp_disease_name`。
 - 中文文件统一使用 UTF-8。
