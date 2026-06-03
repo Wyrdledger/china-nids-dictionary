@@ -8,9 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CURRENT_CSV = ROOT / "data" / "nids_current.csv"
-HISTORY_CSV = ROOT / "data" / "nids_history.csv"
 CURRENT_JSON = ROOT / "data" / "nids_current.json"
-WEEKLY_FIXTURE = ROOT / "tests" / "fixtures" / "weekly_dictionary_2026-06-01.csv"
 PY_HELPER = ROOT / "python" / "nids_dictionary.py"
 
 REQUIRED_COLUMNS = [
@@ -63,7 +61,7 @@ class DictionaryValidationTest(unittest.TestCase):
         self.assertEqual(rows[-1]["disease_name_zh"], "合计")
 
     def test_unique_ids_classes_booleans_dates_and_parent_links(self):
-        rows = read_csv(HISTORY_CSV)
+        rows = read_csv(CURRENT_CSV)
         ids = [row["disease_id"] for row in rows]
         self.assertEqual(len(ids), len(set(ids)))
 
@@ -115,11 +113,6 @@ class DictionaryValidationTest(unittest.TestCase):
                 self.assertEqual(row["is_notifiable_disease"], "true")
                 self.assertEqual(row["parent_disease_id"], "")
 
-    def test_current_csv_matches_active_history_rows(self):
-        current = sorted(read_csv(CURRENT_CSV), key=lambda row: row["disease_id"])
-        history = sorted(read_csv(HISTORY_CSV), key=lambda row: row["disease_id"])
-        self.assertEqual(current, history)
-
     def test_json_matches_current_csv(self):
         csv_rows = read_csv(CURRENT_CSV)
         with CURRENT_JSON.open("r", encoding="utf-8-sig") as handle:
@@ -147,17 +140,6 @@ class DictionaryValidationTest(unittest.TestCase):
             normalized_csv_rows.append(item)
 
         self.assertEqual(json_rows, normalized_csv_rows)
-
-    def test_weekly_dictionary_source_rows_are_migrated(self):
-        weekly_rows = read_csv(WEEKLY_FIXTURE)
-        current_rows = read_csv(CURRENT_CSV)
-        migrated_pairs = {
-            (row["cisdcp_disease_name"], row["disease_name_zh"]) for row in current_rows
-        }
-
-        self.assertEqual(len(weekly_rows), 83)
-        for row in weekly_rows:
-            self.assertIn(row["疾病病种"], {item[0] for item in migrated_pairs})
 
     def test_cisdcp_names_are_unique_and_use_full_width_parentheses(self):
         rows = read_csv(CURRENT_CSV)

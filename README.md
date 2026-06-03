@@ -16,7 +16,7 @@
 
 </div>
 
-本仓库只保存公开规则字典、业务映射口径、schema、读取示例和维护记录；不保存个案数据、患者信息、原始报表或任何敏感数据。当前目录基线来自公开法规和公告，旧周报字典仅作为业务映射来源，不作为法定依据来源。
+本仓库只保存公开规则字典、业务映射口径、schema、读取示例和维护记录；不保存个案数据、患者信息、原始报表或任何敏感数据。当前目录基线来自公开法规和公告。
 
 ## 当前基线
 
@@ -26,9 +26,9 @@
 - 乙类：29 种
 - 丙类：11 种
 
-其余记录为从 `Infection_Weekly` 旧周报字典迁移而来的子项、分型和汇总项。统计法定病种数量时，只使用 `record_type == "notifiable_disease"` 且 `is_notifiable_disease == true` 的记录；不要把子项或 `合计` 计入 42 种法定传染病。
+其余记录为子项、分型和汇总项。统计法定病种数量时，只使用 `record_type == "notifiable_disease"` 且 `is_notifiable_disease == true` 的记录；不要把子项或 `合计` 计入 42 种法定传染病。
 
-本仓库从 2025 年新版《中华人民共和国传染病防治法》和 2026 年第 3 号国家卫生健康委公告建立当前目录基线，并参考 `Infection_Weekly/config/dictionary.csv` 补充 CISDCP 原始报表匹配名、子项/分型、传播类型和病原学分类。`data/nids_history.csv` 当前是持续维护主表，不是覆盖 1989 年以来所有历史调整的完整回溯表。
+本仓库从 2025 年新版《中华人民共和国传染病防治法》和 2026 年第 3 号国家卫生健康委公告建立当前目录基线。当前维护对象为 `data/nids_current.csv` 和对应 JSON 镜像，不声明覆盖 1989 年以来所有历史调整。
 
 ## 快速使用
 
@@ -37,7 +37,6 @@
 ```text
 data/nids_current.csv      当前有效统一字典
 data/nids_current.json     当前有效字典 JSON 镜像
-data/nids_history.csv      当前维护主表
 schema/nids.schema.json    单行字典记录 schema
 docs/field_dictionary.md   字段说明
 docs/sources.md            来源与更新依据
@@ -85,20 +84,20 @@ rows = read_nids_csv(url)
 
 核心字段如下；完整说明见 `docs/field_dictionary.md`。
 
-| 字段 | 用途 |
+| 字段 | 说明 |
 | --- | --- |
-| `disease_id` | 本项目维护的稳定 ID。 |
-| `record_type` | `notifiable_disease`、`subtype`、`alias` 或 `aggregate`。 |
-| `is_notifiable_disease` | 是否计入独立法定传染病数量。 |
-| `parent_disease_id` | 子项/分型对应的父级法定病种 ID。 |
-| `disease_name_zh` | 对外报告使用的正式中文名称。 |
-| `cisdcp_disease_name` | 必须精确匹配 CISDCP 疫情分析报表 `疾病病种` 列。 |
-| `disease_name_en` | 以 `disease_name_zh` 为基准维护的专业英文名称。 |
-| `legal_class` | 法定分类：甲类、乙类、丙类。 |
-| `management_class` | 管理方式：甲类管理、乙类管理、丙类管理。 |
-| `report_time_limit_hours` | 网络直报时限，单位为小时。 |
-| `transmission_type` | 业务传播类型。 |
-| `pathogen_type` | 病原学分类。 |
+| `disease_id` | 本项目维护的稳定 ID |
+| `record_type` | 记录类型，区分法定病种、子项、别名和汇总项 |
+| `is_notifiable_disease` | 是否计入独立法定传染病数量 |
+| `parent_disease_id` | 子项或分型对应的父级法定病种 ID |
+| `disease_name_zh` | 对外报告使用的正式中文名称 |
+| `cisdcp_disease_name` | CISDCP 疫情分析报表 `疾病病种` 列的精确匹配名称 |
+| `disease_name_en` | 以中文正式名称为基准维护的专业英文名称 |
+| `legal_class` | 法定分类，取值为甲类、乙类或丙类 |
+| `management_class` | 管理方式，取值为甲类管理、乙类管理或丙类管理 |
+| `report_time_limit_hours` | 网络直报时限，单位为小时 |
+| `transmission_type` | 传播途径分类 |
+| `pathogen_type` | 病原学分类 |
 
 关键口径：
 
@@ -113,12 +112,11 @@ rows = read_nids_csv(url)
 ## 维护规则
 
 - `main` 表示最新维护版，适合探索和日常使用；正式分析使用 Git tag URL。
-- 目录调整时，先更新 `data/nids_history.csv`，再同步 `data/nids_current.csv` 和 `data/nids_current.json`。
+- 目录调整时，同步更新 `data/nids_current.csv` 和 `data/nids_current.json`。
 - CSV 与 JSON 字段集合应保持一致；JSON 中空字符串按读取契约转换为 `null`。
 - 行顺序固定为：法定传染病在上，子类/分型在下，`合计` 汇总项在最后一行。
 - 子项和分型必须维护 `parent_disease_id`，以便回溯到父级法定病种。
-- 中文文件统一使用 UTF-8；本项目暂不导出兼容旧周报项目的 GBK `dictionary.csv`。
-- 字段迁移关系：`official_name_zh` 和 `report_name_zh` 已合并为 `disease_name_zh`；`raw_match_name_zh` 已更名为 `cisdcp_disease_name`。
+- 中文文件统一使用 UTF-8。
 - 新增、删除、调整病种时，应同步更新 `docs/sources.md`、`docs/field_dictionary.md`、`changelog/CHANGELOG.md` 和测试。
 
 ## 校验
